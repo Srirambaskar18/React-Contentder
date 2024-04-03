@@ -74,6 +74,12 @@
                         border-radius: 5px;
                         border-color: variables.$button-clr;
                     }
+                    .removeCard:hover{
+                        cursor: pointer;
+                    } 
+                    .updateCard{
+                        cursor: pointer;
+                    }
                 }
 
                 .checked {

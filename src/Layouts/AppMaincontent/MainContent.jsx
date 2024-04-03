@@ -6,6 +6,7 @@ import { Card } from '/src/Pages/Card';
 import user1 from '../../assets/Images/user1.jpg';
 import user2 from '../../assets/Images/user2.jpg';
 import userone from '../../assets/Images/userone.jpg';
+import './MainContent.scss';
 
 export const MainContent = () => {
     const [click, setClick] = useState(false);
@@ -32,7 +33,7 @@ export const MainContent = () => {
         setArr((prevData) => [...prevData, data]);
         setClick(false);
     }
-    const val = () => { setClick(false); }
+    const val = (i) => { setClick(i);}
     //remove
     const removeFunction = (i) => {
         const index = arr.filter((item) => item.id !== i);
@@ -43,9 +44,7 @@ export const MainContent = () => {
     const updateFunction = (i) => {
         const value = arr.filter((item) => item.id === i);
         setUpdate(value[0]);
-        // value.map((data) => { name.imageurl.value = data.imageurl, name.profilename.value = data.profilename, name.designation.value = data.designation, name.ratings.value = data.ratings })
         console.log(value, 'update');
-        // const editText="UPDATE YOUR CARD";
         setClick(true)
     };
 
@@ -54,7 +53,7 @@ export const MainContent = () => {
     let filteredResults = []
     const handleSearchChange = (value) => {
         setSearchQuery(value);
-        filteredResults = arr.filter((item) => {
+        filteredResults =arr.filter((item) => {
             if(value!=''){
                 return item.profilename.toLowerCase().includes(value.toLowerCase())
             }
@@ -65,7 +64,7 @@ export const MainContent = () => {
 
     return (
         <>
-            {click ? <AddNewUser action={() => val()} reference={reference} referenceArr={arr} update={update} /> : " "}
+            {click ? <AddNewUser action={val} reference={reference} referenceArr={arr} update={update} setUpdate={setUpdate}/> : " "}
             <section className="contentder__heading__search">
                 <div className="contentder__headingbox">
                     <h1 className="contentder__heading">Contentder Experts</h1>
@@ -82,6 +81,10 @@ export const MainContent = () => {
                     <div className="contentder__addnew">
                         <PrimeButton className="contentder__addnew__button" buttontext='+ Add New' handleclick={() => setClick(true)} />
                     </div>
+                    {/* <div className="userSort">
+                    <i class="fa fa-sort-alpha-asc"></i>
+                    <i class="fa fa-sort-alpha-desc"></i>
+                    </div> */}
                 </div>
             </section>
             <section className="contentder__cards__container">

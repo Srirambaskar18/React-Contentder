@@ -4,6 +4,9 @@
     background-color: variables.$bg-color2;
     width: variables.$wid_100;
     height: variables.$ht-4;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .header {

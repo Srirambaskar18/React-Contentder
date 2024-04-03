@@ -1,41 +1,47 @@
 import { InputFeild } from "../../Components/Input/AppInput";
 import PrimeButton from "../../Components/Button/AppButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import './AddNewUser.scss';
 
-export const AddNewUser = ({ reference, referenceArr, action, update }) => {
+export const AddNewUser = ({ reference, referenceArr, action, update, setUpdate }) => {
     const initialForm = {
-        imageurl:'',
-        profilename:'',
-        designation:'',
-        ratings:'',
-        id:''
+        imageurl: '',
+        profilename: '',
+        designation: '',
+        ratings: '',
+        id: ''
     }
 
     const [data, setData] = useState(update ? update : initialForm);
-    const [error, setError] = useState({urlerror:'',nameerror:'',designationerror:'',ratingerror:''})
+    const [error, setError] = useState({ urlerror: '', nameerror: '', designationerror: '', ratingerror: '' })
+
+    const modelClose = () => {
+        setUpdate(null)
+        action(false)
+    }
 
     //form submit function
     const onCreateClick = (e) => {
+        console.log(data.imageurl, 'checking')
         e.preventDefault();
         console.log(update, 'updatecheck')
-        if (data.imageurl ==='') {
-            setError((prevState)=>({...prevState,urlerror:'Imageurl is required'}))
+        if (data.imageurl === '') {
+            setError((prevState) => ({ ...prevState, urlerror: 'Imageurl is required' }))
         }
-        if (data.profilename ==='') {
-            setError((prevState)=>({...prevState,nameerror:'Profilename could not be Empty'}))
+        if (data.profilename === '') {
+            setError((prevState) => ({ ...prevState, nameerror: 'Profilename could not be Empty' }))
         }
-        if (data.designation ==='') {
-            setError((prevState)=>({...prevState,designationerror:'Designation is required'}))
+        if (data.designation === '') {
+            setError((prevState) => ({ ...prevState, designationerror: 'Designation is required' }))
         }
-        if (data.ratings ==='') {
-            setError((prevState)=>({...prevState,ratingerror:'Ratings is required'}))
+        if (data.ratings === '') {
+            setError((prevState) => ({ ...prevState, ratingerror: 'Ratings is required' }))
         }
-        if(data.imageurl && data.profilename && data.designation && data.ratings !== null){
+        if (data.imageurl && data.profilename && data.designation && data.ratings !== null) {
             if (update) {
                 const dataindex = referenceArr.findIndex((item) => item.id === data.id);
                 referenceArr[dataindex] = data
-                reference(data)
-                setData(initialForm)
+                modelClose()
             }
             else {
                 console.log(data)
@@ -44,6 +50,7 @@ export const AddNewUser = ({ reference, referenceArr, action, update }) => {
             }
         }
     }
+
     //get value from form 
     const getdata = (e) => {
         setData(prev => {
@@ -59,7 +66,10 @@ export const AddNewUser = ({ reference, referenceArr, action, update }) => {
                         <p className="addnew__head">Create your card</p>
                     </div>
                     <div className="addnew__close">
-                        <i className="fa fa-times-circle-o" onClick={action}></i>
+                        <i className="fa fa-times-circle-o" onClick={() => {
+                            modelClose()
+                        }
+                        }></i>
                     </div>
                 </section>
                 <section className="addnew__data">

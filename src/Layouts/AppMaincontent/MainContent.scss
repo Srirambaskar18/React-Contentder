@@ -1,3 +1,5 @@
+@use '../../variables.scss';
+
 .contentder__heading__search {
     width: variables.$wid_100;
     height: 13.5rem;
@@ -69,6 +71,14 @@
             .contentder__addnew__button:hover {
                 cursor: pointer;
             }
+        }
+        .userSort{
+            display: flex;
+            align-items: center;
+            font-size: x-large;
+            gap: 10px;
+            color: grey;
+            
         }
     }
 
