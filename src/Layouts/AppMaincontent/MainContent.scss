@@ -1,0 +1,75 @@
+.contentder__heading__search {
+    width: variables.$wid_100;
+    height: 13.5rem;
+
+    .contentder__headingbox {
+        width: variables.$wid_100;
+        height: variables.$ht-7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .contentder__heading {
+            height: variables.$ht-2;
+            font-size: xx-large;
+            font-family: sans-serif;
+            padding-top: 1rem;
+        }
+    }
+
+    .contentder__search__addnew {
+        width: variables.$wid_100;
+        height: variables.$ht-3-5;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        .contentder__icon__searchbar {
+            width: 75%;
+            height: variables.$ht-3-5;
+            background-color: variables.$bg-color2;
+            display: flex;
+            border-radius: variables.$border-r10;
+
+            .contentder__searchiconbox {
+                width: 5%;
+                display: flex;
+                align-items: center;
+                font-size:x-large ;
+                justify-content: center;
+            }
+
+            .contentder__searchbar {
+                width: 95%;
+
+                .contentder__search {
+                    width: 99%;
+                    height: variables.$ht-3-5;
+                    border: none;
+                    outline: none;
+                    font-size: medium;
+                }
+            }
+
+        }
+
+        .contentder__addnew {
+            width: 8%;
+            height: variables.$ht-3-5;
+
+            .contentder__addnew__button {
+                width: variables.$wid_100;
+                height: variables.$ht-3-5;
+                background-color: variables.$bg-color2;
+                border: none;
+                border-radius: variables.$border-r10;
+                font-size: medium;
+            }
+
+            .contentder__addnew__button:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+}
