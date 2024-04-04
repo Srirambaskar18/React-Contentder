@@ -1,6 +1,6 @@
-import userOne from '../../assets/Images/userOne.jpg';
-import userTwo from '../../assets/Images/userTwo.jpg';
-import userThree from '../../assets/Images/userThree.jpg';
+import userOne from "../assets/Images/userOne.jpg";
+import userTwo from "../assets/Images/userTwo.jpg";
+import userThree from "../assets/Images/userThree.jpg";
 
 export const DefaultUser = [
     {

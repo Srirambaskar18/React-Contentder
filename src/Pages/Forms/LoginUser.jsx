@@ -1,6 +1,6 @@
 import PrimeButton from "../../Components/Button/AppButton";
 import { InputField } from "../../Components/Input/AppInput";
-import './LoginUser.scss'
+import "./LoginUser.scss"
 export const LoginUser = ({ actionClick }) => {
     return (
         <section className="background">
@@ -18,7 +18,7 @@ export const LoginUser = ({ actionClick }) => {
                     <InputField className="userName" type="text" />
                     <label>Password :</label>
                     <InputField className="password" type="password" />
-                    <PrimeButton className="btn" btnTxt='LOGIN' />
+                    <PrimeButton className="btn" btnTxt="LOGIN" />
                     <div>New User? <a href=""> Sign up</a>
                     </div>
                 </section>

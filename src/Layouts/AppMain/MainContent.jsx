@@ -1,10 +1,10 @@
-import PrimeButton from "../../Components/Button/AppButton";
-import { InputField } from "../../Components/Input/AppInput";
-import { AddUser } from "../../Pages/Forms/AddUser";
-import { useState } from "react";
-import { Card } from "/src/Pages/Card";
-import { DefaultUser } from "../../Components/DefaultUser";
-import "./MainContent.scss";
+import PrimeButton from '../../Components/Button/AppButton';
+import { InputField } from '../../Components/Input/AppInput';
+import { AddUser } from '../../Pages/Forms/AddUser';
+import { useState } from 'react';
+import { Card } from '/src/Pages/Card';
+import { DefaultUser } from '../../Components/DefaultUser';
+import './MainContent.scss';
 
 export const MainContent = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ export const MainContent = () => {
     };
 
     //search
-    const [searchQuery, setSearchQuery] = useState("");
+    const [searchQuery, setSearchQuery] = useState('');
     let filteredResults = []
     const handleSearchChange = (value) => {
         setSearchQuery(value);
@@ -42,19 +42,19 @@ export const MainContent = () => {
                 return item.name.toLowerCase().includes(value.toLowerCase())
             }
         });
-        console.log(filteredResults,"mistake")
+        console.log(filteredResults,'mistake')
         setSearch(filteredResults)
     };
     const handleAscending=()=>{
         const sortedData=[...users.sort((a,b)=>{
-            console.log(a,b,"checkcheck")
+            console.log(a,b,'checkcheck')
             return a.name > b.name ? 1 : -1;
         })]
         setUsers(sortedData)
     }
     const handleDescending=()=>{
         const sortedData=[...users].sort((a,b)=>{
-            console.log(a,b,"check")
+            console.log(a,b,'check')
             return a.name > b.name ? -1 : 1;
         })
         setUsers(sortedData)
@@ -62,7 +62,7 @@ export const MainContent = () => {
 
     return (
         <>
-            {isOpen && <AddUser action={() => AddUserClose()} addingUser={addingUser} propUsers={users} setUpdate={setUpdate} update={update} /> }
+            {isOpen ? <AddUser action={() => AddUserClose()} addingUser={addingUser} propUsers={users} setUpdate={setUpdate} update={update} /> : " "}
             <section className="headingSearchContainer">
                 <div className="headingBox">
                     <h1 className="heading">Contentder Experts</h1>
@@ -77,7 +77,7 @@ export const MainContent = () => {
                         </div>
                     </div>
                     <div className="addUserBtnBox">
-                        <PrimeButton className="addUserBtn" btnTxt="+ Add New" handleClick={() => setIsOpen(true)} />
+                        <PrimeButton className="addUserBtn" btnTxt='+ Add New' handleClick={() => setIsOpen(true)} />
                     </div>
                     <div className="userSort">
                     <i className="fa fa-sort-alpha-asc" onClick={handleAscending}></i>

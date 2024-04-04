@@ -1,14 +1,14 @@
-import logo from '../../assets/Images/stickylogowhite1.png';
-import PrimeButton from '../../Components/Button/AppButton';
-import { useState } from 'react';
-import { LoginUser } from '../../Pages/Forms/LoginUser';
-import './Header.scss';
+import logo from "../../assets/Images/stickylogowhite1.png";
+import PrimeButton from "../../Components/Button/AppButton";
+import { useState } from "react";
+import { LoginUser } from "../../Pages/Forms/LoginUser";
+import "./Header.scss";
 
 export const Header = () => {
     const [isLoginOpen, setIsLoginOpen] = useState(false)
     return (
         <>
-            <nav className='headerComponent'>
+            <nav className="headerComponent">
                 <div className="header">
                     <section className="left">
                         <img src={logo} alt="logo" className="logo" />
@@ -32,12 +32,12 @@ export const Header = () => {
                             </div>
                         </div>
                         <div className="btnBox">
-                            <PrimeButton className="loginBtn" btnTxt='LOGIN' handleClick={() => setIsLoginOpen(true)} />
+                            <PrimeButton className="loginBtn" btnTxt="LOGIN" handleClick={() => setIsLoginOpen(true)} />
                         </div>
                     </section>
                 </div>
             </nav>
-            {isLoginOpen ? <LoginUser actionClick={() => setIsLoginOpen(false)} /> : " "}
+            {isLoginOpen && <LoginUser actionClick={() => setIsLoginOpen(false)} />}
         </>
     );
 }

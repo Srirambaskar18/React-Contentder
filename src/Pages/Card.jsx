@@ -1,4 +1,4 @@
-import './Card.scss'
+import "./Card.scss"
 
 export const Card = ({user,handleDelete,handleUpdate}) => {
     let ratingicon=[];

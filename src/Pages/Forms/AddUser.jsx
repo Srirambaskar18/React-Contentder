@@ -1,19 +1,19 @@
 import { InputField } from "../../Components/Input/AppInput";
 import PrimeButton from "../../Components/Button/AppButton";
 import { useState } from "react";
-import './AddUser.scss';
+import "./AddUser.scss";
 
 export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => {
     const initialForm = {
-        image: '',
-        name: '',
-        designation: '',
-        ratings: '',
-        id: ''
+        image: "",
+        name: "",
+        designation: "",
+        ratings: "",
+        id: ""
     }
 
     const [data, setData] = useState(update ? update : initialForm);
-    const [error, setError] = useState({ url: '', name: '', designation: '', rating: '' })
+    const [error, setError] = useState({ url: "", name: "", designation: "", rating: "" })
 
     const modelClose = () => {
         setUpdate(null)
@@ -22,20 +22,20 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
 
     //form submit function
     const handleSubmit = (e) => {
-        console.log(data.image, 'checking')
+        console.log(data.image, "checking")
         e.preventDefault();
-        console.log(update, 'updatecheck')
-        if (data.image === '') {
-            setError((prevState) => ({ ...prevState, url: 'Image is required' }))
+        console.log(update, "updatecheck")
+        if (data.image === "") {
+            setError((prevState) => ({ ...prevState, url: "Image is required" }))
         }
-        if (data.name === '') {
-            setError((prevState) => ({ ...prevState, name: 'Name could not be Empty' }))
+        if (data.name === "") {
+            setError((prevState) => ({ ...prevState, name: "Name could not be Empty" }))
         }
-        if (data.designation === '') {
-            setError((prevState) => ({ ...prevState, designation: 'Designation is required' }))
+        if (data.designation === "") {
+            setError((prevState) => ({ ...prevState, designation: "Designation is required" }))
         }
-        if (data.ratings === '') {
-            setError((prevState) => ({ ...prevState, rating: 'Ratings is required' }))
+        if (data.ratings === "") {
+            setError((prevState) => ({ ...prevState, rating: "Ratings is required" }))
         }
         if (data.image && data.name && data.designation && data.ratings !== null) {
             if (update) {
@@ -45,7 +45,7 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
             }
             else {
                 console.log(data)
-                data['id'] = propUsers.length + 1;
+                data["id"] = propUsers.length + 1;
                 addingUser(data)
             }
         }
@@ -86,7 +86,7 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
                     <InputField value={data.ratings} className="ratings" type="text" name="ratings" placeholder="ratings" handleChange={getdata} />
                 </section>
                 <section className="btnBox">
-                    <PrimeButton className="btn" type="submit" btnTxt='CREATE' />
+                    <PrimeButton className="btn" type="submit" btnTxt="CREATE" />
                 </section>
             </form>
         </section>
