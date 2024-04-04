@@ -1,13 +1,13 @@
 @use '/src/variables';
 
-.addnew__bg {
+.background{
     background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-.addnew__container {
+.addUserContainer {
     top: 20%;
     left: 37%;
     position: relative;
@@ -17,17 +17,17 @@
     display: block;
     border-radius: variables.$border-r25;
 
-    .addnew__header {
+    .header {
         width: variables.$wid_100;
         height: variables.$ht-5;
         display: flex;
 
-        .addnew__headbox {
+        .headingBox {
             width: 92%;
             height: variables.$ht-5;
             display: inline-block;
 
-            .addnew__head {
+            .heading{
                 width: fit-content;
                 height: variables.$ht-2;
                 position: relative;
@@ -38,18 +38,18 @@
             }
         }
 
-        .addnew__close {
+        .closeIcon {
             width: 8%;
             height: variables.$ht-2;
             font-size: 1.75rem;
         }
     }
 
-    .addnew__data {
+    .addUserData {
         text-align: center;
         height: 18rem;
 
-        .form__errors {
+        .error {
             color: red;
             font-weight: bolder;
             font-size: 13px;
@@ -58,7 +58,7 @@
             bottom: 4px;
         }
 
-        .addnew__image {
+        .image {
             border: none;
             outline: none;
             height: variables.$ht-2;
@@ -69,7 +69,7 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .addnew__name {
+        .name {
             border: none;
             outline: none;
             height: variables.$ht-2;
@@ -79,7 +79,7 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .addnew__designation {
+        .designation {
             border: none;
             outline: none;
             height: variables.$ht-2;
@@ -89,7 +89,7 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
-        .addnew__ratings {
+        .ratings {
             border: none;
             outline: none;
             height: variables.$ht-2;
@@ -101,11 +101,11 @@
 
     }
 
-    .addnew__create__buttonbox {
+    .btnBox {
         display: flex;
         justify-content: center;
 
-        .addnew__create__button {
+        .btn {
             width: 8rem;
             height: variables.$ht-2;
             background-color: variables.$primary-color1;
@@ -115,7 +115,7 @@
             border: thin;
         }
 
-        .addnew__create__button:hover {
+        .btn:hover {
             background-color: variables.$bg-color2;
             color: variables.$primary-color1;
             border: 1px solid;

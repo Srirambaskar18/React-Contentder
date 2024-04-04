@@ -1,17 +1,17 @@
 @use '../../variables.scss';
 
-.contentder__heading__search {
+.headingSearchContainer {
     width: variables.$wid_100;
     height: 13.5rem;
 
-    .contentder__headingbox {
+    .headingBox {
         width: variables.$wid_100;
         height: variables.$ht-7;
         display: flex;
         align-items: center;
         justify-content: center;
 
-        .contentder__heading {
+        .heading {
             height: variables.$ht-2;
             font-size: xx-large;
             font-family: sans-serif;
@@ -19,21 +19,21 @@
         }
     }
 
-    .contentder__search__addnew {
+    .searchAddUser {
         width: variables.$wid_100;
         height: variables.$ht-3-5;
         display: flex;
         justify-content: center;
         gap: 1rem;
 
-        .contentder__icon__searchbar {
+        .searchBar {
             width: 75%;
             height: variables.$ht-3-5;
             background-color: variables.$bg-color2;
             display: flex;
             border-radius: variables.$border-r10;
 
-            .contentder__searchiconbox {
+            .searchIcon {
                 width: 5%;
                 display: flex;
                 align-items: center;
@@ -41,10 +41,10 @@
                 justify-content: center;
             }
 
-            .contentder__searchbar {
+            .searchBox {
                 width: 95%;
 
-                .contentder__search {
+                .search {
                     width: 99%;
                     height: variables.$ht-3-5;
                     border: none;
@@ -55,11 +55,11 @@
 
         }
 
-        .contentder__addnew {
+        .addUserBtnBox {
             width: 8%;
             height: variables.$ht-3-5;
 
-            .contentder__addnew__button {
+            .addUserBtn {
                 width: variables.$wid_100;
                 height: variables.$ht-3-5;
                 background-color: variables.$bg-color2;
@@ -68,7 +68,7 @@
                 font-size: medium;
             }
 
-            .contentder__addnew__button:hover {
+            .addUserBtn:hover {
                 cursor: pointer;
             }
         }
@@ -80,6 +80,23 @@
             color: grey;
             
         }
+    }
+
+}
+.cardContainer {
+    width: variables.$wid-100;
+    display: flex;
+    justify-content: center;
+
+    .search__not__found {
+        display: none;
+    }
+
+    .cardBox {
+        width: 84%;
+        display: flex;
+        gap: 51px 40px;
+        flex-wrap: wrap;
     }
 
 }

@@ -1,6 +1,6 @@
 @use '/src/variables';
 
-.header__component {
+.headerComponent {
     background-color: variables.$bg-color2;
     width: variables.$wid_100;
     height: variables.$ht-4;
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
 
-    .header__left {
+    .left {
         width: 11rem;
         height: variables.$ht-4;
         display: flex;
@@ -23,39 +23,39 @@
         margin-left: 3rem;
         justify-content: space-between;
 
-        .header__left__image {
+        .logo {
             width: 3rem;
             height: variables.$ht-2-5;
         }
 
-        .header__left__head {
+        .leftHeading {
             font-family: sans-serif;
         }
     }
 
-    .header__right {
+    .right {
         width: 31rem;
         height: variables.$ht-4;
         display: flex;
         gap: 2rem;
 
-        .header__right__routebox {
+        .routeBox {
             display: flex;
             height: variables.$ht-4;
             gap: 1.5rem;
 
-            .header__right__route__links {
+            .routeLink {
                 height: variables.$ht-4;
                 display: flex;
                 align-items: center;
 
-                .header__right__route__link {
+                .routingLink {
                     font-family: sans-serif;
                     font-size: 14px;
                 }
             }
 
-            .header__right__route__links:hover {
+            .routeLink:hover {
                 height: variables.$ht-3-8;
                 border-bottom: 4px solid variables.$primary-color1;
                 cursor: pointer;
@@ -63,11 +63,11 @@
         }
     }
 }
-.header__right__button {
+.btnBox {
     display: flex;
     align-items: center;
   
-    .header__right__login__button {
+    .loginBtn {
         width: 5rem;
         height: variables.$ht-2;
         background-color: variables.$primary-color1;
@@ -77,7 +77,7 @@
         border: thin;
     }
   
-    .header__right__login__button:hover {
+    .loginBtn:hover {
         background-color: variables.$bg-color2;
         color: variables.$primary-color1;
         border: 1px solid;

@@ -5,39 +5,39 @@ import { LoginUser } from '../../Pages/Forms/LoginUser';
 import './Header.scss';
 
 export const Header = () => {
-    const [click, setClick] = useState(false)
+    const [isLoginOpen, setIsLoginOpen] = useState(false)
     return (
         <>
-            <nav className='header__component'>
+            <nav className='headerComponent'>
                 <div className="header">
-                    <section className="header__left">
-                        <img src={logo} alt="contentderlogo" className="header__left__image" />
-                        <h2 className="header__left__head">contentder</h2>
+                    <section className="left">
+                        <img src={logo} alt="logo" className="logo" />
+                        <h2 className="leftHeading">contentder</h2>
                     </section>
-                    <section className="header__right">
-                        <div className="header__right__route">
-                            <div className="header__right__routebox">
-                                <div className="header__right__route__links">
-                                    <div className="header__right__route__link">Templates</div>
+                    <section className="right">
+                        <div className="route">
+                            <div className="routeBox">
+                                <div className="routeLink">
+                                    <div className="routingLink">Templates</div>
                                 </div>
-                                <div className="header__right__route__links">
-                                    <div className="header__right__route__link">Features</div>
+                                <div className="routeLink">
+                                    <div className="routingLink">Features</div>
                                 </div>
-                                <div className="header__right__route__links">
-                                    <div className="header__right__route__link">Subscription</div>
+                                <div className="routeLink">
+                                    <div className="routingLink">Subscription</div>
                                 </div>
-                                <div className="header__right__route__links">
-                                    <div className="header__right__route__link">Support</div>
+                                <div className="routeLink">
+                                    <div className="routingLink">Support</div>
                                 </div>
                             </div>
                         </div>
-                        <div className="header__right__button">
-                            <PrimeButton className="header__right__login__button" buttontext='LOGIN' handleclick={() => setClick(true)} />
+                        <div className="btnBox">
+                            <PrimeButton className="loginBtn" btnTxt='LOGIN' handleClick={() => setIsLoginOpen(true)} />
                         </div>
                     </section>
                 </div>
             </nav>
-            {click ? <LoginUser actionclick={() => setClick(false)} /> : " "}
+            {isLoginOpen ? <LoginUser actionClick={() => setIsLoginOpen(false)} /> : " "}
         </>
     );
 }

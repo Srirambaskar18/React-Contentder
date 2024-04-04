@@ -1,33 +1,33 @@
 @use '/src/variables';
 
-.login__bg {
+.background {
     background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-.login__container {
+.loginContainer {
     top: 20%;
     left: 40%;
     position: relative;
     width: 20rem;
-    height: 25rem;
+    height: 20rem;
     background-color: variables.$bg-color2;
     display: block;
     border-radius: variables.$border-r25;
 
-    .login__header {
+    .header {
         width: variables.$wid_100;
         height: variables.$ht-5;
         display: flex;
 
-        .login__headbox {
+        .headingBox {
             width: 92%;
             height: variables.$ht-5;
             display: inline-block;
 
-            .login__head {
+            .heading {
                 width: fit-content;
                 height: variables.$ht-2;
                 padding-top: 1rem;
@@ -38,61 +38,49 @@
             }
         }
 
-        .login__close {
+        .closeIcon {
             width: 8%;
             height: variables.$ht-2;
             font-size: 1.75rem;
         }
     }
 
-    .login__username__pass {
+    .getInputBox {
         width: variables.$wid_100;
         height: variables.$ht-10;
         display: flex;
-        justify-content: center;
         align-items: center;
-
-        .login__user__input {
-            border: none;
-            outline: none;
-            border-bottom: 2px solid variables.$border-black ;
-        }
-
-        .login__pass__input {
-            border: none;
-            outline: none;
-            border-bottom: 2px solid variables.$border-black ;
-        }
-    }
-
-    .login__userpass__buttonbox {
-        display: flex;
         justify-content: center;
-
-        .login__userpass__button {
-            width: 8rem;
-            height: variables.$ht-2 ;
-            background-color: variables.$primary-color1;
-            color: variables.$bg-color2;
-            border-radius: variables.$border-r25;
-            border-color: variables.$primary-color1;
-            border: thin;
-        }
-
-        .login__userpass__button:hover {
-            background-color: variables.$bg-color2;
-            color: variables.$primary-color1;
-            border: 1px solid;
-            cursor: pointer;
-        }
+        flex-wrap: wrap;
+        gap: 6px;
     }
 
-    .login__userpass__signuppara {
-        width: variables.$wid_100;
-        height: variables.$ht-2;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        top: 1rem;
+    .userName {
+        border: none;
+        outline: none;
+        border-bottom: 2px solid variables.$border-black ;
     }
+
+    .password {
+        border: none;
+        outline: none;
+        border-bottom: 2px solid variables.$border-black ;
+    }
+}
+
+.btn {
+    width: 8rem;
+    height: variables.$ht-2 ;
+    background-color: variables.$primary-color1;
+    color: variables.$bg-color2;
+    border-radius: variables.$border-r25;
+    border-color: variables.$primary-color1;
+    border: thin;
+}
+
+.btn:hover {
+    background-color: variables.$bg-color2;
+    color: variables.$primary-color1;
+    border: 1px solid;
+    cursor: pointer;
 }

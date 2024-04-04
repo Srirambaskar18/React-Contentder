@@ -1,51 +1,35 @@
 import PrimeButton from '../../Components/Button/AppButton';
-import { InputFeild } from '../../Components/Input/AppInput';
-import { AddNewUser } from '../../Pages/Forms/AddNewUser';
+import { InputField } from '../../Components/Input/AppInput';
+import { AddUser } from '../../Pages/Forms/AddUser';
 import { useState } from 'react';
 import { Card } from '/src/Pages/Card';
-import user1 from '../../assets/Images/user1.jpg';
-import user2 from '../../assets/Images/user2.jpg';
-import userone from '../../assets/Images/userone.jpg';
-import './MainContent.scss';
+import { DefaultUser } from '../../Components/Button/DefaultUser';
+import '../AppMainContent/MainContent.scss';
 
 export const MainContent = () => {
-    const [click, setClick] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [update, setUpdate] = useState(null);
-    const userdata = [
-        {
-            imageurl: user1, profilename: "sri", designation: "Entertainer", ratings: 4, id: 1
-        },
-        {
-            imageurl: userone, profilename: "ramachandran", designation: "Entertainer", ratings: 4, id: 2
-        },
-        {
-            imageurl: user2, profilename: "dhanam", designation: "Entertainer", ratings: 1, id: 3
-        },
-        {
-            imageurl: user1, profilename: "Bhuvanesh", designation: "cricketer", ratings: 5, id: 4
-        }
-    ]
-    const [arr, setArr] = useState(userdata);
+    const [users, setUsers] = useState(DefaultUser);
     const [search, setSearch] = useState([]);
 
     //Addnew
-    const reference = (data) => {
-        setArr((prevData) => [...prevData, data]);
-        setClick(false);
+    const addingUser = (data) => {
+        setUsers((prevData) => [...prevData, data]);
+        setIsOpen(false);
     }
-    const val = (i) => { setClick(i);}
+    const AddUserClose = () => { setIsOpen(false); }
+
     //remove
-    const removeFunction = (i) => {
-        const index = arr.filter((item) => item.id !== i);
-        setArr(index);
+    const handleDelete = (id) => {
+        const index = users.filter((item) => item.id !== id);
+        setUsers(index);
     }
 
     //update
-    const updateFunction = (i) => {
-        const value = arr.filter((item) => item.id === i);
+    const handleUpdate = (id) => {
+        const value = users.filter((item) => item.id === id);
         setUpdate(value[0]);
-        console.log(value, 'update');
-        setClick(true)
+        setIsOpen(true)
     };
 
     //search
@@ -53,54 +37,68 @@ export const MainContent = () => {
     let filteredResults = []
     const handleSearchChange = (value) => {
         setSearchQuery(value);
-        filteredResults =arr.filter((item) => {
-            if(value!=''){
-                return item.profilename.toLowerCase().includes(value.toLowerCase())
+        filteredResults = users.filter((item) => {
+            if(value){
+                return item.name.toLowerCase().includes(value.toLowerCase())
             }
         });
         console.log(filteredResults,'mistake')
         setSearch(filteredResults)
     };
+    const handleAscending=()=>{
+        const sortedData=[...users.sort((a,b)=>{
+            console.log(a,b,'checkcheck')
+            return a.name > b.name ? 1 : -1;
+        })]
+        setUsers(sortedData)
+    }
+    const handleDescending=()=>{
+        const sortedData=[...users].sort((a,b)=>{
+            console.log(a,b,'check')
+            return a.name > b.name ? -1 : 1;
+        })
+        setUsers(sortedData)
+    }
 
     return (
         <>
-            {click ? <AddNewUser action={val} reference={reference} referenceArr={arr} update={update} setUpdate={setUpdate}/> : " "}
-            <section className="contentder__heading__search">
-                <div className="contentder__headingbox">
-                    <h1 className="contentder__heading">Contentder Experts</h1>
+            {isOpen ? <AddUser action={() => AddUserClose()} addingUser={addingUser} propUsers={users} setUpdate={setUpdate} update={update} /> : " "}
+            <section className="headingSearchContainer">
+                <div className="headingBox">
+                    <h1 className="heading">Contentder Experts</h1>
                 </div>
-                <div className="contentder__search__addnew">
-                    <div className="contentder__icon__searchbar">
-                        <div className="contentder__searchiconbox">
+                <div className="searchAddUser">
+                    <div className="searchBar">
+                        <div className="searchIcon">
                             <i className="fa fa-search"></i>
                         </div>
-                        <div className="contentder__searchbar">
-                            <InputFeild value={searchQuery} type="search" placeholder="Search here" className="contentder__search" handlechange={(e) => handleSearchChange(e.target.value)} />
+                        <div className="searchBox">
+                            <InputField value={searchQuery} type="search" placeholder="Search here" className="search" handleChange={(e) => handleSearchChange(e.target.value)} />
                         </div>
                     </div>
-                    <div className="contentder__addnew">
-                        <PrimeButton className="contentder__addnew__button" buttontext='+ Add New' handleclick={() => setClick(true)} />
+                    <div className="addUserBtnBox">
+                        <PrimeButton className="addUserBtn" btnTxt='+ Add New' handleClick={() => setIsOpen(true)} />
                     </div>
-                    {/* <div className="userSort">
-                    <i class="fa fa-sort-alpha-asc"></i>
-                    <i class="fa fa-sort-alpha-desc"></i>
-                    </div> */}
+                    <div className="userSort">
+                    <i className="fa fa-sort-alpha-asc" onClick={handleAscending}></i>
+                    <i className="fa fa-sort-alpha-desc" onClick={handleDescending}></i>
+                    </div>
                 </div>
             </section>
-            <section className="contentder__cards__container">
-                <div className="contentder__cards__box" >
+            <section className="cardContainer">
+                <div className="cardBox" >
                     {search && search.length > 0 ? search.map((value) => {
                         return (
                             <> 
-                                {value && <Card usercard={value} removeFunction={removeFunction} updateFunction={updateFunction} />}
+                                {value && <Card user={value} handleDelete={handleDelete} handleUpdate={handleUpdate} />}
                             </>
                         );
                     })
                      :
-                    arr?.map((value) => {
+                    users?.map((value) => {
                         return (
                             <>
-                                {value && <Card usercard={value} removeFunction={removeFunction} updateFunction={updateFunction} />}
+                                {value && <Card user={value} handleDelete={handleDelete} handleUpdate={handleUpdate} />}
                             </>
                         );
                     })}
@@ -109,8 +107,3 @@ export const MainContent = () => {
         </>
     );
 }
-// export const SearchNot=()=>{
-//     return(
-//         <div  className="search__not__found">Search Not Found</div>
-//     );
-// }

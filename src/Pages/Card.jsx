@@ -1,36 +1,42 @@
 import './Card.scss'
 
-export const Card = ({usercard,removeFunction,updateFunction}) => {
+export const Card = ({user,handleDelete,handleUpdate}) => {
     let ratingicon=[];
     let i;
     const getratings=(rate)=>{
         for (i = 1; i <= 5; i++) {
             if (i <= rate) {
-                ratingicon.push(<i className="fa fa-star checked"></i>)
+                ratingicon.push(<i className="fa fa-star ratingIcon"></i>)
             }
             else {
-                ratingicon.push(<i className="fa fa-star-o checked"></i>)
+                ratingicon.push(<i className="fa fa-star-o ratingIcon"></i>)
             }
         }
         return ratingicon;
     }
     
     return (
-        <div className="contentder__cards" >
-            <div className="contentder__cards__imagebox">
-                <img className="contentder__cards__image" src={usercard.imageurl} alt="" />
+        <div className="card" >
+            <div className="imagebox">
+                <img className="image" src={user.image} alt="" />
             </div>
-            <div className="contentder__card__name__rating">
-                <h3 className="contentder__card__name">{usercard.profilename}</h3>
-                <p className="contentder__card__designation">{usercard.designation}</p>
-                <div className="contentder__card__rating">
-                    {getratings(usercard.ratings)}
+            <div className="rating">
+                <h3 className="name">{user.name}</h3>
+                <p className="designation">{user.designation}</p>
+                <div className="rating" >
+                    {getratings(user.ratings)}
                 </div>
-                <div className="remove__update__button">
-                    <button className="updateCard" onClick={()=>{updateFunction(usercard.id)}}>Update</button>
-                    <button className="removeCard" onClick={()=>{removeFunction(usercard.id)}}>Delete</button>
+                <div className="btnBox">
+                    <button className="update" onClick={()=>{handleUpdate(user.id)}}>Update</button>
+                    <button className="delete" onClick={()=>{handleDelete(user.id)}}>Delete</button>
                 </div>
             </div>
         </div>
     );
 }
+
+
+
+
+
+    

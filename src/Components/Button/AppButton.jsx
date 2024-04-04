@@ -1,7 +1,7 @@
 
 const PrimeButton = (props) => {
     return (
-        <button type={props.type} className={props.className} onClick={props.handleclick}>{props.buttontext}</button>
+        <button type={props.type} className={props.className} onClick={props.handleClick}>{props.btnTxt}</button>
     );
 }
 export default PrimeButton
