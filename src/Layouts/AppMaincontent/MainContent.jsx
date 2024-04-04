@@ -4,7 +4,7 @@ import { AddUser } from '../../Pages/Forms/AddUser';
 import { useState } from 'react';
 import { Card } from '/src/Pages/Card';
 import { DefaultUser } from '../../Components/Button/DefaultUser';
-import '../AppMainContent/MainContent.scss';
+import './MainContent.scss';
 
 export const MainContent = () => {
     const [isOpen, setIsOpen] = useState(false);
