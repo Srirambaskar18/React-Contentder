@@ -23,7 +23,7 @@ interface AddUserProps {
         id: number;
     };
 
-    setUpdate:any;
+    setUpdate: any;
 }
 export const AddUser: FC<AddUserProps> = ({ addingUser, propUsers, action, update, setUpdate }) => {
     let btnTxt: string;
@@ -74,10 +74,10 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, propUsers, action, updat
         if (data.ratings === "") {
             setError((prevState) => ({ ...prevState, rating: "Ratings is required" }))
         }
-        if(data.ratings >= 5){
-            setError((prevState)=>({...prevState,rating:"Ratings must be 0 to 5"}))
+        if (data.ratings >= 5) {
+            setError((prevState) => ({ ...prevState, rating: "Ratings must be 0 to 5" }))
         }
-        if (data.image && data.name && data.designation !== null && data.ratings!=='' && data.ratings<=5) {
+        if (data.image && data.name && data.designation && data.ratings !== '' && data.ratings <= 5) {
             if (update) {
                 const dataIndex = propUsers.findIndex((item) => item.id === data.id);
                 propUsers[dataIndex] = data
