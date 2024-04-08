@@ -1,11 +1,12 @@
+import React, { FC } from "react";
 import logo from "../../assets/Images/stickylogowhite1.png";
-import PrimeButton from "../../Components/Button/AppButton";
+import { PrimeButton } from "../../Components/Button/AppButton";
 import { useState } from "react";
 import { LoginUser } from "../../Pages/Forms/LoginUser";
 import "./Header.scss";
 
-export const Header = () => {
-    const [isLoginOpen, setIsLoginOpen] = useState(false)
+export const Header: FC = () => {
+    const [isLoginOpen, setIsLoginOpen] = useState<boolean>(false)
     return (
         <>
             <nav className="headerComponent">

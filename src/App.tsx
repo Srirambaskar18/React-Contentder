@@ -1,9 +1,10 @@
+import React, { FC } from "react";
 import "./App.scss"
 import { Header } from "./Layouts/AppHeader/Header";
 import { MainContent } from "./Layouts/AppMainContent/MainContent";
 
 
-function App() {
+export const App: FC = () => {
 
   return (
     <>
@@ -12,5 +13,3 @@ function App() {
     </>
   );
 }
-
-export default App

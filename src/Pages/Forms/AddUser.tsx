@@ -1,10 +1,49 @@
 import { InputField } from "../../Components/Input/AppInput";
-import PrimeButton from "../../Components/Button/AppButton";
+import { PrimeButton } from "../../Components/Button/AppButton";
 import { useState } from "react";
+import React, { FC } from "react";
 import "./AddUser.scss";
 
-export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => {
-    const initialForm = {
+interface AddUserProps {
+    addingUser: ({ }) => void;
+    propUsers: {
+        image: string;
+        name: any;
+        designation: any;
+        ratings: number;
+        id: number;
+    }[];
+    action: (action: boolean) => void;
+
+    update: {
+        image: string;
+        name: string;
+        designation: string;
+        ratings: number;
+        id: number;
+    };
+
+    setUpdate:any;
+}
+export const AddUser: FC<AddUserProps> = ({ addingUser, propUsers, action, update, setUpdate }) => {
+    let btnTxt: string;
+    let addUserTitle: string;
+
+    if (update) {
+        btnTxt = 'UPDATE'
+        addUserTitle = 'Update your card'
+    }
+    else {
+        btnTxt = 'CREATE'
+        addUserTitle = 'Create your card'
+    }
+    const initialForm: {
+        image: string;
+        name: string;
+        designation: string;
+        ratings: any;
+        id: any;
+    } = {
         image: "",
         name: "",
         designation: "",
@@ -15,15 +54,15 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
     const [data, setData] = useState(update ? update : initialForm);
     const [error, setError] = useState({ url: "", name: "", designation: "", rating: "" })
 
-    const modelClose = () => {
+    const isClose = () => {
         setUpdate(null)
         action(false)
     }
 
     //form submit function
-    const handleSubmit = (e) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         console.log(data.image, "checking")
-        e.preventDefault();
+        event.preventDefault();
         console.log(update, "updatecheck")
         if (data.image === "") {
             setError((prevState) => ({ ...prevState, url: "Image is required" }))
@@ -41,7 +80,7 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
             if (update) {
                 const dataIndex = propUsers.findIndex((item) => item.id === data.id);
                 propUsers[dataIndex] = data
-                modelClose()
+                isClose()
             }
             else {
                 console.log(data)
@@ -52,9 +91,9 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
     }
 
     //get value from form 
-    const getdata = (e) => {
-        setData(prev => {
-            return { ...prev, [e.target.name]: e.target.value };
+    const getdata = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setData((prev: any) => {
+            return { ...prev, [event.target.name]: event.target.value };
         });
     }
 
@@ -63,11 +102,11 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
             <form className="addUserContainer" onSubmit={(handleSubmit)} >
                 <section className="header">
                     <div className="headingBox">
-                        <p className="heading">Create your card</p>
+                        <p className="heading">{addUserTitle}</p>
                     </div>
                     <div className="closeIcon">
                         <i className="fa fa-times-circle-o" onClick={() => {
-                            modelClose()
+                            isClose()
                         }
                         }></i>
                     </div>
@@ -86,7 +125,7 @@ export const AddUser = ({ addingUser,propUsers, action, update, setUpdate }) => 
                     <InputField value={data.ratings} className="ratings" type="text" name="ratings" placeholder="ratings" handleChange={getdata} />
                 </section>
                 <section className="btnBox">
-                    <PrimeButton className="btn" type="submit" btnTxt="CREATE" />
+                    <PrimeButton className="btn" type="submit" btnTxt={btnTxt} />
                 </section>
             </form>
         </section>

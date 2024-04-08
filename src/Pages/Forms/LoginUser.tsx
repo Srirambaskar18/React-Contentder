@@ -1,7 +1,13 @@
-import PrimeButton from "../../Components/Button/AppButton";
+import { PrimeButton } from "../../Components/Button/AppButton";
 import { InputField } from "../../Components/Input/AppInput";
 import "./LoginUser.scss"
-export const LoginUser = ({ actionClick }) => {
+import React, { FC } from "react";
+
+interface LoginUserProps {
+    actionClick: () => void;
+}
+
+export const LoginUser: FC<LoginUserProps> = ({ actionClick }) => {
     return (
         <section className="background">
             <form className="loginContainer" >
@@ -14,9 +20,9 @@ export const LoginUser = ({ actionClick }) => {
                     </div>
                 </section>
                 <section className="getInputBox">
-                    <label>User Name :</label>
+                    <label>User Name </label>
                     <InputField className="userName" type="text" />
-                    <label>Password :</label>
+                    <label>Password </label>
                     <InputField className="password" type="password" />
                     <PrimeButton className="btn" btnTxt="LOGIN" />
                     <div>New User? <a href=""> Sign up</a>
