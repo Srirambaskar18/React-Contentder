@@ -61,9 +61,7 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, propUsers, action, updat
 
     //form submit function
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        console.log(data.image, "checking")
         event.preventDefault();
-        console.log(update, "updatecheck")
         if (data.image === "") {
             setError((prevState) => ({ ...prevState, url: "Image is required" }))
         }
@@ -76,7 +74,10 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, propUsers, action, updat
         if (data.ratings === "") {
             setError((prevState) => ({ ...prevState, rating: "Ratings is required" }))
         }
-        if (data.image && data.name && data.designation && data.ratings !== null) {
+        if(data.ratings >= 5){
+            setError((prevState)=>({...prevState,rating:"Ratings must be 0 to 5"}))
+        }
+        if (data.image && data.name && data.designation !== null && data.ratings!=='' && data.ratings<=5) {
             if (update) {
                 const dataIndex = propUsers.findIndex((item) => item.id === data.id);
                 propUsers[dataIndex] = data
