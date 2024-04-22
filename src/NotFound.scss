@@ -1,0 +1,9 @@
+@use "./variables.scss";
+.notFound{
+    width: 85%;
+    margin-top: 4rem;
+    background-color: variables.$secondary-color;
+    text-align: center;
+    font-size: x-large;
+    font-family: sans-serif;
+}

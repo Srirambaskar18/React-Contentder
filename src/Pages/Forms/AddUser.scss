@@ -1,112 +1,109 @@
 @use "/src/variables";
 
-.background{
-    background-color: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.background {
+    background-color: variables.$secondary-color;
+    width:85%;
+    height: 39rem;
+    margin-top: 3rem;
+    margin-left: 230px;
 }
-
+.background,.goBackIcon,.addUserData,.backBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .addUserContainer {
-    top: 20%;
-    left: 37%;
-    position: relative;
-    width: 25rem;
-    height: 28rem;
+    width: 98%;
+    height: 38rem;
     background-color: variables.$bg-color2;
     display: block;
-    border-radius: variables.$border-r25;
+    border-radius: variables.$border-r10 0px;
 
     .header {
         width: variables.$wid_100;
-        height: variables.$ht-5;
+        height: 4.5rem;
         display: flex;
+        align-items: center;
+        margin-left: 5px;
 
         .headingBox {
-            width: 92%;
-            height: variables.$ht-5;
-            display: inline-block;
-
-            .heading{
-                width: fit-content;
-                height: variables.$ht-2;
-                position: relative;
-                left: 7rem;
-                top: 2rem;
-                font-family: sans-serif;
-                font-size: x-large;
-            }
+            display: flex;
+            gap:0px 15px;
+            height: variables.$ht-4;
+            align-items: center;
         }
 
-        .closeIcon {
-            width: 8%;
+        .goBackIcon {
+            border-radius: variables.$border-r25;
+            width: 2rem;
+            height: 2rem;
+            background-color: rgb(236, 234, 234);
+            font-size:medium;
+            position: relative;
+            bottom: 15px
+        }
+        .goBackIcon:hover{
+            background-color: rgb(200, 199, 199);
+            cursor: pointer;
+        }
+
+        .heading {
+            width: fit-content;
             height: variables.$ht-2;
-            font-size: 1.75rem;
+            font-family: sans-serif;
+            font-size: x-large;
         }
     }
 
     .addUserData {
-        text-align: center;
         height: 18rem;
+        flex-wrap: wrap;
+        column-gap: 10rem;
 
         .error {
             color: red;
             font-weight: bolder;
             font-size: 13px;
             font-family: sans-serif;
-            position: relative;
-            bottom: 4px;
+            margin-top: 10px;
         }
 
-        .image {
+        .label {
+            font-family: sans-serif;
+            font-size: 1rem;
+        }
+
+        .image ,.name ,.designation ,.ratings {
             border: none;
             outline: none;
+            width: 30rem;
             height: variables.$ht-2;
             text-align: center;
+            margin-top: 5px;
             font-size: medium;
-            margin-bottom: 30px;
-            // margin-top: 20px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 4px 8px 0 #9db8f37a, 0 6px 20px 0 rgba(0, 0, 0, -0.81);
         }
-
-        .name {
-            border: none;
-            outline: none;
-            height: variables.$ht-2;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: medium;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
-        .designation {
-            border: none;
-            outline: none;
-            height: variables.$ht-2;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: medium;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
-        .ratings {
-            border: none;
-            outline: none;
-            height: variables.$ht-2;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: medium;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
     }
 
     .btnBox {
         display: flex;
-        justify-content: center;
+        justify-content: end;
+        gap: 2rem;
+        margin-top: 2rem;
+        margin-right: 7rem;
+
+        .backBtn {
+            font-family: sans-serif;
+            font-size: larger;
+        }
+
+        .backBtn:hover {
+            color: variables.$primary-color1;
+            cursor: pointer;
+        }
 
         .btn {
-            width: 8rem;
+            width: 6rem;
             height: variables.$ht-2;
             background-color: variables.$primary-color1;
             color: variables.$bg-color2;

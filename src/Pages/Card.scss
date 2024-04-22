@@ -1,6 +1,6 @@
 @use "/src/variables.scss";
         .card {
-            width: 22%;
+            width: 85%;
             height: 22rem;
             background-color: variables.$bg-color2;
             border-radius: 8px;
@@ -14,8 +14,8 @@
                 align-items: center;
 
                 .image {
-                    width: 200px;
-                    height: 200px;
+                    width: 180px;
+                    height: 180px;
                     border-radius: 50%;
                 }
             }

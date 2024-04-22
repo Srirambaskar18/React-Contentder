@@ -1,8 +1,9 @@
 import userOne from "../assets/Images/userOne.jpg";
 import userTwo from "../assets/Images/userTwo.jpg";
 import userThree from "../assets/Images/userThree.jpg";
+import { User } from "../Common/UserInterface";
 
-export const DefaultUser: Array<{ image: any, name: string, designation: string, ratings: number, id: number }> = [] = [
+export const DefaultUser: Array<User> = [] = [
     {
         image: userOne, name: "Asath", designation: "Entertainer", ratings: 4, id: 1
     },

@@ -1,0 +1,58 @@
+@use "/src/variables";
+
+.headerComponent {
+    background-color: variables.$bg-color2;
+    width: variables.$wid_100;
+    height: variables.$ht-3;
+    position: fixed;
+    z-index: 2;
+}
+
+.header {
+    width: variables.$wid_100;
+    height: variables.$ht-3;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+        width: 11rem;
+        height: variables.$ht-3;
+        display: flex;
+        align-items: center;
+        margin-left: 3rem;
+        gap: 4px;
+
+        .logo {
+            width: 2.5rem;
+            height: variables.$ht-2;
+        }
+
+        .leftHeading {
+            font-family: sans-serif;
+        }
+    }
+
+    .right {
+        display: flex;
+        height: variables.$ht-3;
+        align-items: center;
+        margin-right: 1rem;
+
+        .loginBtn {
+            width: 4rem;
+            height: variables.$ht-2;
+            background-color: variables.$primary-color1;
+            color: variables.$bg-color2;
+            border-radius: variables.$border-r25;
+            border-color: variables.$primary-color1;
+            border: thin;
+        }
+
+        .loginBtn:hover {
+            background-color: variables.$bg-color2;
+            color: variables.$primary-color1;
+            border: 1px solid;
+            cursor: pointer;
+        }
+    }
+}

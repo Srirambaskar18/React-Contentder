@@ -1,5 +1,14 @@
 @use "../../variables.scss";
 
+.mainContent {
+    display: block;
+    width: 85%;
+    margin-top: 3rem;
+    margin-left: 230px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .headingSearchContainer {
     width: variables.$wid_100;
     height: 13.5rem;
@@ -21,14 +30,14 @@
 
     .searchAddUser {
         width: variables.$wid_100;
-        height: variables.$ht-3-5;
+        height: variables.$ht-3;
         display: flex;
         justify-content: center;
         gap: 1rem;
 
         .searchBar {
             width: 75%;
-            height: variables.$ht-3-5;
+            height: variables.$ht-3;
             background-color: variables.$bg-color2;
             display: flex;
             border-radius: variables.$border-r10;
@@ -37,7 +46,7 @@
                 width: 5%;
                 display: flex;
                 align-items: center;
-                font-size:x-large ;
+                font-size: x-large;
                 justify-content: center;
             }
 
@@ -46,7 +55,7 @@
 
                 .search {
                     width: 99%;
-                    height: variables.$ht-3-5;
+                    height: variables.$ht-3;
                     border: none;
                     outline: none;
                     font-size: medium;
@@ -57,11 +66,11 @@
 
         .addUserBtnBox {
             width: 8%;
-            height: variables.$ht-3-5;
+            height: variables.$ht-3;
 
             .addUserBtn {
                 width: variables.$wid_100;
-                height: variables.$ht-3-5;
+                height: variables.$ht-3;
                 background-color: variables.$bg-color2;
                 border: none;
                 border-radius: variables.$border-r10;
@@ -70,33 +79,33 @@
 
             .addUserBtn:hover {
                 cursor: pointer;
+                background-color: variables.$primary-color1;
+                color: white;
             }
         }
-        .userSort{
+
+        .userSort {
             display: flex;
             align-items: center;
             font-size: x-large;
             gap: 10px;
             color: grey;
-            
+        }
+        .userSort:hover{
+            cursor: pointer;
         }
     }
 
 }
+
 .cardContainer {
-    width: variables.$wid-100;
-    display: flex;
-    justify-content: center;
+    width: variables.$wid-95;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 15px;
+    margin-left: 40px;
 
     .search__not__found {
         display: none;
     }
-
-    .cardBox {
-        width: 84%;
-        display: flex;
-        gap: 51px 40px;
-        flex-wrap: wrap;
-    }
-
 }

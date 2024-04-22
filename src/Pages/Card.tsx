@@ -1,5 +1,7 @@
 import "./Card.scss"
 import React, { FC, ReactElement } from "react";
+import { useNavigate } from "react-router-dom";
+import { PrimaryBtn } from "../Components/Button/AppButton";
 
 interface CardProps {
     user: {
@@ -14,6 +16,7 @@ interface CardProps {
 }
 
 export const Card:FC <CardProps> = ({ user, handleDelete, handleUpdate }) => {
+    const navigate = useNavigate()
     let ratingicon: ReactElement[] = [];
     let i: number;
     const getratings = (rate: any) => {
@@ -40,8 +43,8 @@ export const Card:FC <CardProps> = ({ user, handleDelete, handleUpdate }) => {
                     {getratings(user.ratings)}
                 </div>
                 <div className="btnBox">
-                    <button className="update" onClick={() => { handleUpdate(user.id) }}>Update</button>
-                    <button className="delete" onClick={() => { handleDelete(user.id) }}>Delete</button>
+                    <PrimaryBtn className="update" handleClick={() => { handleUpdate(user.id); navigate(`/user/update/${user.id}`)}} btnTxt={"Update"}/>
+                    <PrimaryBtn className="delete" handleClick={() => { handleDelete(user.id) }} btnTxt={"Delete"}/>
                 </div>
             </div>
         </div>

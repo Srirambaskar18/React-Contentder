@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 
-interface PrimeButtonProps {
+interface PrimaryBtnProps {
     type?: any;
     className: string;
-    handleClick?: () => void;
-    btnTxt: string;
+    handleClick?: (e:any) => void;
+    btnTxt: any;
 }
 
-export const PrimeButton: FC<PrimeButtonProps> = ({ type, className, handleClick, btnTxt }) => {
+export const PrimaryBtn: FC<PrimaryBtnProps> = ({ type, className, handleClick, btnTxt }) => {
 
     return (
         <button type={type} className={className} onClick={handleClick}>{btnTxt}</button>
