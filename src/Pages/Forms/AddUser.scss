@@ -2,10 +2,9 @@
 
 .background {
     background-color: variables.$secondary-color;
-    width:85%;
+    width:variables.$wid_85;
     height: 39rem;
-    margin-top: 3rem;
-    margin-left: 230px;
+    margin:3rem 0px 0px 230px;
 }
 .background,.goBackIcon,.addUserData,.backBtn{
     display: flex;
@@ -21,7 +20,7 @@
 
     .header {
         width: variables.$wid_100;
-        height: 4.5rem;
+        height: variables.$ht-4-5;
         display: flex;
         align-items: center;
         margin-left: 5px;
@@ -36,7 +35,7 @@
         .goBackIcon {
             border-radius: variables.$border-r25;
             width: 2rem;
-            height: 2rem;
+            height: variables.$ht-2;
             background-color: rgb(236, 234, 234);
             font-size:medium;
             position: relative;

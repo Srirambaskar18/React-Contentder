@@ -1,44 +1,43 @@
-import { PrimaryBtn } from "../../Components/Button/AppButton";
-import { InputField } from "../../Components/Input/AppInput";
-import { useState } from "react";
+import PrimaryBtn from "../../Components/Button/AppButton";
+import InputField from "../../Components/Input/AppInput";
 import { useNavigate } from "react-router-dom";
-import React, { FC } from "react";
-import { Card } from "../Card";
-import { User } from "../../Common/UserInterface";
+import { FC, useState } from "react";
+import Card from "../Card";
+import DefaultUser, { User } from "../../Components/DefaultUser";
 import "./Users.scss";
-interface UsersProp{
+interface UsersProp {
     users: User[];
-    setUsers:any;
-    setUpdate: any;
+    setUsers: (value: {}[]) => void;
+    setUpdate: (value: {}) => void;
 }
-export const Users: FC<UsersProp> = ({users,setUsers,setUpdate}) => {
+const Users: FC<UsersProp> = ({ users, setUsers, setUpdate }) => {
     const [search, setSearch] = useState<Array<{}>>([]);
 
     const navigate = useNavigate()
 
     //remove
     const handleDelete = (id: number) => {
-        const index = users.filter((item: any) => item.id !== id);
+        const index = users.filter((item:User) => item.id !== id);
         setUsers(index);
+        DefaultUser.splice(id,1)
     }
 
     //update
     const handleUpdate = (id: number) => {
-        const value = users.filter((item: any) => item.id === id);
+        const value = users.filter((item:User) => item.id === id);
         setUpdate(value[0]);
     };
 
     //search
     const [searchQuery, setSearchQuery] = useState("");
     let filteredResults: Array<{}> = []
-    const handleSearchChange = (value: any) => {
+    const handleSearchChange = (value:string) => {
         setSearchQuery(value);
-        filteredResults = users.filter((item: any) => {
+        filteredResults = users.filter((item:User) => {
             if (value) {
                 return item.name.toLowerCase().includes(value.toLowerCase())
             }
         });
-        console.log(filteredResults, "mistake")
         setSearch(filteredResults)
     };
     const handleAscending = () => {
@@ -67,7 +66,7 @@ export const Users: FC<UsersProp> = ({users,setUsers,setUpdate}) => {
                                 <i className="fa fa-search"></i>
                             </div>
                             <div className="searchBox">
-                                <InputField value={searchQuery} type="search" placeholder="Search here" className="search" handleChange={(event: any) => handleSearchChange(event.target.value)} />
+                                <InputField value={searchQuery} type="search" placeholder="Search here" className="search" handleChange={(event: React.ChangeEvent<HTMLInputElement>) => handleSearchChange(event.target.value)} />
                             </div>
                         </div>
                         <div className="addUserBtnBox">
@@ -80,7 +79,7 @@ export const Users: FC<UsersProp> = ({users,setUsers,setUpdate}) => {
                     </div>
                 </section>
                 <section className="cardContainer">
-                    {search && search.length > 0 ? search.map((value: any) => {
+                    {search && search.length > 0 ? search.map((value:any) => {
                         return (
                             <>
                                 {value && <Card user={value} handleDelete={handleDelete} handleUpdate={handleUpdate} />}
@@ -100,3 +99,5 @@ export const Users: FC<UsersProp> = ({users,setUsers,setUpdate}) => {
         </>
     );
 }
+
+export default Users;

@@ -2,11 +2,17 @@
 
 .mainContent {
     display: block;
-    width: 85%;
-    margin-top: 3rem;
-    margin-left: 230px;
+    width: variables.$wid_85;
+    margin:3rem 0px 0px 230px;
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+.headingBox,
+.searchIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .headingSearchContainer {
@@ -16,9 +22,6 @@
     .headingBox {
         width: variables.$wid_100;
         height: variables.$ht-7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
         .heading {
             height: variables.$ht-2;
@@ -44,14 +47,11 @@
 
             .searchIcon {
                 width: 5%;
-                display: flex;
-                align-items: center;
                 font-size: x-large;
-                justify-content: center;
             }
 
             .searchBox {
-                width: 95%;
+                width: variables.$wid-95 ;
 
                 .search {
                     width: 99%;
@@ -91,7 +91,8 @@
             gap: 10px;
             color: grey;
         }
-        .userSort:hover{
+
+        .userSort:hover {
             cursor: pointer;
         }
     }

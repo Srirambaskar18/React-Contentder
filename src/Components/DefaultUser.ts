@@ -1,19 +1,29 @@
 import userOne from "../assets/Images/userOne.jpg";
 import userTwo from "../assets/Images/userTwo.jpg";
 import userThree from "../assets/Images/userThree.jpg";
-import { User } from "../Common/UserInterface";
+import userFour from "../assets/Images/userFour.jpg";
 
-export const DefaultUser: Array<User> = [] = [
+export  interface User {
+    image: string,
+    name: string,
+    designation: string,
+    ratings:any,
+    id: any,
+    password:string
+}
+const DefaultUser:Array<User> = [
     {
-        image: userOne, name: "Asath", designation: "Entertainer", ratings: 4, id: 1
+        image: userOne, name: "Asath", designation: "Civil Engineer", ratings: 4, id: 0,password:"sriram"
     },
     {
-        image: userTwo, name: "dhanam", designation: "Entertainer", ratings: 4, id: 2
+        image: userTwo, name: "Dhanam", designation: "Full-Stack developer", ratings: 4, id: 1,password:"sriram"
     },
     {
-        image: userThree, name: "chandran", designation: "Entertainer", ratings: 1, id: 3
+        image: userThree, name: "SriramBaskar", designation: "Front-End developer", ratings: 5, id: 2,password:"sriram"
     },
     {
-        image: userOne, name: "Bhuvanesh", designation: "cricketer", ratings: 5, id: 4
+        image: userFour, name: "Bhuvanesh", designation: "cricketer", ratings: 1, id: 3,password:"sriram"
     }
 ]
+
+export default DefaultUser;

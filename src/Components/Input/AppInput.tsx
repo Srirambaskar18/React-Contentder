@@ -6,13 +6,16 @@ interface InputFieldProps {
     name?: string;
     className?: string;
     placeholder?: string;
-    handleChange?: (event:any) => void;
+    handleChange?: (event: any) => void;
+    maxLength?: number;
+    readonly?:any;
 }
 
 
-export const InputField: FC<InputFieldProps> = ({ value, name, type, className, placeholder, handleChange }) => {
+const InputField: FC<InputFieldProps> = ({ value, name, type, className, placeholder, handleChange, maxLength ,readonly}) => {
     return (<>
-       <input value={value} type={type} name={name} className={className} placeholder={placeholder} onChange={handleChange} />
-       </>
+        <input value={value} type={type} name={name} className={className} placeholder={placeholder} onChange={handleChange} maxLength={maxLength} readonly={readonly}/>
+    </>
     );
 }
+export default InputField;

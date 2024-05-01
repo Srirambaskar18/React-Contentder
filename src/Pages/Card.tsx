@@ -1,21 +1,16 @@
 import "./Card.scss"
-import React, { FC, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 import { useNavigate } from "react-router-dom";
-import { PrimaryBtn } from "../Components/Button/AppButton";
+import  PrimaryBtn  from "../Components/Button/AppButton";
+import { User } from "../Components/DefaultUser";
 
 interface CardProps {
-    user: {
-        image: string;
-        name: string;
-        designation: string;
-        ratings: number;
-        id: number;
-    };
+    user: User;
     handleDelete: (id: number) => void;
     handleUpdate: (id: number) => void;
 }
 
-export const Card:FC <CardProps> = ({ user, handleDelete, handleUpdate }) => {
+const Card:FC <CardProps> = ({ user, handleDelete, handleUpdate }) => {
     const navigate = useNavigate()
     let ratingicon: ReactElement[] = [];
     let i: number;
@@ -50,6 +45,8 @@ export const Card:FC <CardProps> = ({ user, handleDelete, handleUpdate }) => {
         </div>
     );
 }
+
+export default Card;
 
 
 

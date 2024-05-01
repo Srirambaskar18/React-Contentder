@@ -1,8 +1,8 @@
 @use "/src/variables";
 
 .loginBackground {
-    width: 100vw;
-    height: 100vh;
+    width: variables.$wid-100vw;
+    height: variables.$ht-100vh;
     // background: rgb(240, 81, 234);
     // background: linear-gradient(120deg, rgba(240, 81, 234, 1) 0%, rgba(211, 241, 255, 1) 50%, rgba(81, 82, 240, 1) 100%);
 
@@ -44,9 +44,6 @@
     }
 
     .getInputBox {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
         flex-wrap: wrap;
         margin-top: 3rem;
@@ -61,7 +58,7 @@
     .userInput,
     .passwordInput {
         width: 15rem;
-        height: 1.5rem;
+        height: variables.$ht-1-5;
         font-size: medium;
         border: none;
         outline: none;

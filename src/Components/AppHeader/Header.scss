@@ -7,7 +7,10 @@
     position: fixed;
     z-index: 2;
 }
-
+.left,.right,.profileNameImg{
+    display: flex;
+    align-items: center;
+}
 .header {
     width: variables.$wid_100;
     height: variables.$ht-3;
@@ -17,8 +20,6 @@
     .left {
         width: 11rem;
         height: variables.$ht-3;
-        display: flex;
-        align-items: center;
         margin-left: 3rem;
         gap: 4px;
 
@@ -33,26 +34,25 @@
     }
 
     .right {
-        display: flex;
         height: variables.$ht-3;
-        align-items: center;
         margin-right: 1rem;
+        gap: 5px;
 
-        .loginBtn {
-            width: 4rem;
-            height: variables.$ht-2;
-            background-color: variables.$primary-color1;
-            color: variables.$bg-color2;
-            border-radius: variables.$border-r25;
-            border-color: variables.$primary-color1;
-            border: thin;
-        }
-
-        .loginBtn:hover {
-            background-color: variables.$bg-color2;
-            color: variables.$primary-color1;
-            border: 1px solid;
-            cursor: pointer;
+        .profileNameImg{
+            column-gap: 5px;
+            height: variables.$ht-3;
+            .profileImg{
+                width: 2rem;
+                height: variables.$ht-2;
+                border-radius: 25px;
+            }
+            .profileImg:hover{
+                cursor: pointer;
+            }
+            .profileName{
+                margin:0px 0px 0px 0px;
+                font-family: sans-serif;
+            }
         }
     }
 }

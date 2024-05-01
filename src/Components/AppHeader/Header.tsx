@@ -1,11 +1,14 @@
-import React, { FC } from "react";
+import{ FC, useContext, useState } from "react";
 import logo from "../../assets/Images/stickylogowhite1.png";
-import { PrimaryBtn } from "../../Components/Button/AppButton";
 import "./Header.scss";
-import { useNavigate } from "react-router-dom";
-
-export const Header: FC = () => {
-    const navigate=useNavigate()
+import { AuthContext } from "../../Routes/Auth";
+import Dropdown from "../Dropdown/Dropdown";
+const Header: FC = () => {
+    const {getProfileData}=useContext(AuthContext)
+    const [isOpen,setIsOpen]=useState(false)
+    const handleOpen=()=>{
+        setIsOpen(!isOpen)
+    }
     return (
         <>
             <nav className="headerComponent">
@@ -14,11 +17,18 @@ export const Header: FC = () => {
                         <img src={logo} alt="logo" className="logo" />
                         <h2 className="leftHeading">contentder</h2>
                     </section>
-                        <section className="right">
-                            <PrimaryBtn className="loginBtn" btnTxt="LogOut" handleClick={() =>navigate("/loginUser")} />
+                    <section className="right">
+                        <div className="profileNameImg">
+                        <Dropdown open={isOpen}
+                        setOpen={setIsOpen} 
+                        trigger={<img src={getProfileData.image} alt="profileImg" onClick={handleOpen} className="profileImg"/>}
+                        />
+                        <p className="profileName">{getProfileData.name}</p>
+                        </div>
                     </section>
                 </div>
             </nav>
         </>
     );
 }
+export default Header;

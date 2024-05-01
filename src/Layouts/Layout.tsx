@@ -1,18 +1,18 @@
-import React from 'react'
-import { Header } from "../Components/AppHeader/Header";
-import { SideBar } from "../Components/AppSideBar/SideBar";
-import { Outlet } from 'react-router-dom';
+import { FC } from "react"
+import Header from "../Components/AppHeader/Header";
+import SideBar from "../Components/AppSideBar/SideBar";
+import { Outlet } from "react-router-dom";
 
-export const Layout = () => {
+const Layout: FC = () => {
   return (
     <>
-    <Header />
+      <Header />
       <div className="mainBox">
         <SideBar />
-        <Outlet/>
+        <Outlet />
       </div>
     </>
   )
 }
 
- 
+export default Layout; 

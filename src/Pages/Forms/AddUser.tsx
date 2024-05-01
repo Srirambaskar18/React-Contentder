@@ -1,39 +1,39 @@
-import { InputField } from "../../Components/Input/AppInput";
-import { PrimaryBtn } from "../../Components/Button/AppButton";
-import { useState } from "react";
-import React, { FC } from "react";
+import InputField from "../../Components/Input/AppInput";
+import PrimaryBtn from "../../Components/Button/AppButton";
+import React, { FC, useState } from "react";
 import "./AddUser.scss";
-import { User } from "../../Common/UserInterface";
-import { useNavigate} from "react-router-dom";
+import { User } from "../../Components/DefaultUser";
+import { useNavigate } from "react-router-dom";
 
 interface AddUserProps {
-    addingUser: ({ }) => void;
+    addingUser: (value:User ) => void;
 
     users: User[];
 
     update: User;
 
-    setUpdate: any;
+    setUpdate: (value: any) => void;
 }
-export const AddUser: FC<AddUserProps> = ({ addingUser, users, update, setUpdate }) => {
-    let navigate = useNavigate()
+const AddUser: FC<AddUserProps> = ({ addingUser, users, update, setUpdate }) => {
+    const navigate = useNavigate()
     let btnTxt: string;
     let addUserTitle: string;
 
-    if (update!==null) {
-        btnTxt = 'UPDATE'
-        addUserTitle = 'Update your card'
+    if (update !== null) {
+        btnTxt = "UPDATE"
+        addUserTitle = "Update your card"
     }
     else {
-        btnTxt = 'CREATE'
-        addUserTitle = 'Create User'
+        btnTxt = "CREATE"
+        addUserTitle = "Create User"
     }
     const initialForm: User = {
         image: "",
         name: "",
         designation: "",
         ratings: "",
-        id: ""
+        id: "",
+        password:"password"
     }
 
     const [data, setData] = useState(update ? update : initialForm);
@@ -58,7 +58,7 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, users, update, setUpdate
         if (data.ratings > 5) {
             setError((prevState) => ({ ...prevState, rating: "Ratings must be 0 to 5" }))
         }
-        if (data.ratings <= 5 && data.image && data.name && data.designation && data.ratings !== '') {
+        if (data.ratings <= 5 && data.image && data.name && data.designation && data.ratings !== "") {
             if (update) {
                 const dataIndex = users.findIndex((item) => item.id === data.id);
                 users[dataIndex] = data
@@ -87,7 +87,7 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, users, update, setUpdate
                 <section className="header">
                     <div className="headingBox">
                         <div className="goBackIcon">
-                            <i onClick={() => {navigate(-1);setUpdate(null)}} className="fa fa-arrow-left"></i>
+                            <i onClick={() => { navigate(-1); setUpdate(null) }} className="fa fa-arrow-left"></i>
                         </div>
                         <p className="heading">{addUserTitle}</p>
                     </div>
@@ -115,7 +115,7 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, users, update, setUpdate
                     </div>
                 </section>
                 <section className="btnBox">
-                    <div className="backBtn" onClick={() =>{ navigate(-1); setUpdate(null)}}>
+                    <div className="backBtn" onClick={() => { navigate(-1); setUpdate(null) }}>
                         Cancel
                     </div>
                     <PrimaryBtn className="btn" type="submit" btnTxt={btnTxt} />
@@ -124,3 +124,5 @@ export const AddUser: FC<AddUserProps> = ({ addingUser, users, update, setUpdate
         </section>
     );
 }
+
+export default AddUser;
